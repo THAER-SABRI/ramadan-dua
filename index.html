@@ -10,24 +10,24 @@
 /* ===== عام ===== */
 body {
   font-family: 'Cairo', sans-serif;
-  background: linear-gradient(to bottom, #046BA7, #0a89d1);
+  background: #fff; /* الأساس أبيض */
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: #145c8f; /* النصوص الأساسية أزرق */
   text-align: center;
 }
 
 /* ===== هيدر ===== */
 header {
-  background: #046BA7;
+  background: #145c8f; /* الهيدر أزرق */
   padding: 30px 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 header h1 {
   margin: 0;
   font-size: 2.5em;
   font-weight: 700;
-  color: #fff;
+  color: #fff; /* النص داخل الهيدر أبيض */
 }
 
 /* ===== الحاويات ===== */
@@ -39,20 +39,20 @@ header h1 {
 }
 
 .card {
-  background: #ffffff20;
+  background: #fff; /* البطاقات بيضاء */
   border-radius: 20px;
   padding: 25px;
   margin: 15px;
   width: 90%;
   max-width: 500px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  border: 2px solid #145c8f; /* إطار أزرق */
 }
 
 /* ===== الأزرار ===== */
 button {
-  background-color: #fff;
-  color: #046BA7;
+  background-color: #145c8f;
+  color: #fff;
   border: none;
   border-radius: 15px;
   padding: 12px 28px;
@@ -63,8 +63,7 @@ button {
   transition: 0.3s;
 }
 button:hover {
-  background-color: #046BA7;
-  color: #fff;
+  background-color: #0d4470;
   transform: scale(1.07);
 }
 
@@ -77,7 +76,7 @@ button:hover {
 .counter {
   font-size: 42px;
   margin: 10px 0;
-  color: #ffeb3b;
+  color: #145c8f;
   font-weight: bold;
 }
 
@@ -86,7 +85,7 @@ button:hover {
   font-size: 20px;
   font-weight: bold;
   margin: 10px 0;
-  background: rgba(255,255,255,0.25);
+  background: #145c8f;
   padding: 15px;
   border-radius: 15px;
   color: #fff;
