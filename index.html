@@ -3,69 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IEEE Ramadan Duas</title>
+<title>IEEE Ramadan Hub 🌙</title>
+<!-- استدعاء خط عربي جميل -->
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
 <style>
+/* ===== عام ===== */
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f0f4f8;
-  color: #fff;
-  text-align: center;
+  font-family: 'Amiri', serif;
+  background: linear-gradient(to bottom, #0072C6, #00aaff);
   margin: 0;
   padding: 0;
+  color: #fff;
+  text-align: center;
 }
 
+/* ===== هيدر ===== */
 header {
-  background-color: #0072C6; /* لون IEEE */
-  padding: 20px;
+  background: #005f8a;
+  padding: 25px 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
-
 header h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 2.2em;
 }
 
+/* ===== الحاويات ===== */
 .container {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
 
 .card {
-  background-color: #1e3a5f; /* أزرق غامق متناسق */
+  background: rgba(0,0,0,0.2);
+  border-radius: 20px;
   padding: 25px;
-  border-radius: 15px;
   margin: 15px;
   width: 90%;
-  max-width: 400px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  max-width: 450px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
 }
 
+/* ===== الأزرار ===== */
 button {
-  background-color: #00aaff;
-  color: white;
+  background-color: #00ffff;
+  color: #005f8a;
   border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin: 10px;
+  border-radius: 15px;
+  padding: 12px 25px;
+  margin: 10px 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
 }
-
 button:hover {
-  background-color: #005f8a;
+  background-color: #00aaff;
+  color: #fff;
+  transform: scale(1.05);
 }
 
-.counter {
-  font-size: 36px;
-  margin: 10px 0;
-  color: #00ffff;
-}
-
+/* ===== نصوص ===== */
 .dua-text {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 15px;
-  min-height: 60px;
+  min-height: 70px;
+}
+.counter {
+  font-size: 40px;
+  margin: 10px 0;
+  color: #ffff00;
+}
+
+/* ===== تحديات الأعمال الخيرية ===== */
+.challenge {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  background: rgba(255,255,255,0.2);
+  padding: 15px;
+  border-radius: 15px;
+  color: #ffeb3b;
 }
 </style>
 </head>
@@ -77,44 +98,86 @@ button:hover {
 
 <div class="container">
 
+  <!-- بطاقة الأدعية -->
   <div class="card">
+    <h2>🌸 دعاء اليوم</h2>
     <div class="dua-text" id="dua">اضغط للحصول على دعاء</div>
-    <button onclick="newDua()">دعاء جديد</button>
+    <button onclick="newDua()">✨ دعاء جديد</button>
   </div>
 
+  <!-- بطاقة عداد الاستغفار -->
   <div class="card">
-    <h3>عداد الاستغفار</h3>
+    <h2>🕌 عداد الاستغفار</h2>
     <div class="counter" id="count">0</div>
     <button onclick="increment()">استغفر الله</button>
     <button onclick="reset()">تصفير</button>
   </div>
 
+  <!-- بطاقة تحديات الأعمال الخيرية -->
+  <div class="card">
+    <h2>🎁 تحدي الخير اليوم</h2>
+    <div class="challenge" id="challenge">اضغط لعرض التحدي</div>
+    <button onclick="newChallenge()">🌟 تحدي جديد</button>
+  </div>
+
 </div>
 
 <script>
+// ===== أدعية =====
 const duas = [
 "اللهم بلغنا رمضان لا فاقدين ولا مفقودين",
 "اللهم إنك عفو تحب العفو فاعف عنا",
 "اللهم ارزقنا حسن الخاتمة",
 "اللهم اجعل القرآن ربيع قلوبنا",
 "اللهم تقبل منا الصيام والقيام",
-"اللهم اجعلنا من المقبولين"
+"اللهم اجعلنا من المقبولين",
+"اللهم اجعلنا من عبادك الصالحين"
 ];
-
 function newDua(){
   const random = Math.floor(Math.random() * duas.length);
   document.getElementById("dua").innerText = duas[random];
 }
 
-// عداد الاستغفار
+// ===== عداد الاستغفار =====
 let count = 0;
 function increment(){
   count++;
   document.getElementById("count").innerText = count;
+  localStorage.setItem('count', count); // حفظ العدد
 }
 function reset(){
   count = 0;
   document.getElementById("count").innerText = count;
+  localStorage.setItem('count', count);
+}
+// استرجاع العدد عند فتح الصفحة
+window.onload = function(){
+  const saved = localStorage.getItem('count');
+  if(saved) count = parseInt(saved);
+  document.getElementById('count').innerText = count;
+}
+
+// ===== تحديات الأعمال الخيرية =====
+const challenges = [
+"تصدق بـ 5 شيكل على المحتاجين اليوم",
+"ساعد جاراً في تنظيف حديقة منزله",
+"أرسل رسالة طيبة لشخص محتاج دعم",
+"تطوع ساعة واحدة في عمل خيري",
+"تبرع بكتاب أو لعبة لطفل محتاج",
+"نظّم خزانة الملابس للتبرع بما لا تحتاجه"
+];
+function newChallenge(){
+  const random = Math.floor(Math.random() * challenges.length);
+  document.getElementById("challenge").innerText = challenges[random];
+}
+
+// ===== تفعيل الأدعية + تحديات عند فتح الصفحة =====
+window.onload = function(){
+  newDua();
+  newChallenge();
+  const saved = localStorage.getItem('count');
+  if(saved) count = parseInt(saved);
+  document.getElementById('count').innerText = count;
 }
 </script>
 
