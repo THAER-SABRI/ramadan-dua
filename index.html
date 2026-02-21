@@ -63,9 +63,9 @@
         border-radius: 25px;
         padding: 25px;
         margin: 20px 0;
-        width: 50%;
-        max-width: 380px; /* مناسب للهواتف */
-        box-shadow: 0 0 20px rgba(7, 119, 166, 0.3);
+        width: 80%;          /* أصغر من الشاشة */
+        max-width: 360px;    /* مناسب للهواتف */
+        box-shadow: 0 0 25px rgba(7, 119, 166, 0.35);
         border: 2px solid #0777a6;
         color: #0777a6;
         transition:
@@ -74,7 +74,7 @@
         position: relative;
       }
       .card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
         box-shadow: 0 0 35px rgba(7, 119, 166, 0.6);
       }
 
@@ -82,15 +82,14 @@
       .dua-text,
       .challenge {
         font-size: 22px;
-        line-height: 1.5em;
+        line-height: 1.6em;
         transition:
           transform 0.3s,
           color 0.3s,
           text-shadow 0.3s;
       }
-      /* زيادة المسافة بين النص والزر في البطاقة */
       .card button {
-        margin-top: 30px; /* المسافة بين النص والزر */
+        margin-top: 25px; /* المسافة بين النص والزر */
       }
       .counter {
         font-size: 45px;
@@ -137,7 +136,6 @@
         height: 50px;
         text-align: center;
         box-shadow: 0 0 15px rgba(7, 119, 166, 0.5);
-        margin-bottom: 20px;
       }
 
       /* ===== Animation ===== */
@@ -171,8 +169,8 @@
           padding: 20px 5px;
         }
         .card {
+          width: 90%; /* أصغر على الشاشات الصغيرة */
           padding: 20px;
-          width: 95%;
         }
         .dua-text,
         .challenge {
@@ -209,7 +207,7 @@
       </div>
 
       <div class="card">
-        <h2>: تحدي اليوم</h2>
+        <h2>تحدي اليوم:</h2>
         <div class="challenge" id="challenge">اضغط لعرض التحدي</div>
         <button onclick="newChallenge()">تحدي جديد</button>
       </div>
