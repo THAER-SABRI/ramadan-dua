@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IEEE Ramadan Hub 🌙</title>
-<!-- استدعاء خط عربي جميل -->
-<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+<!-- خط عربي أنيق -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ===== عام ===== */
 body {
-  font-family: 'Amiri', serif;
-  background: linear-gradient(to bottom, #0072C6, #00aaff);
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(to bottom, #046BA7, #0a89d1);
   margin: 0;
   padding: 0;
   color: #fff;
@@ -19,13 +19,15 @@ body {
 
 /* ===== هيدر ===== */
 header {
-  background: #005f8a;
-  padding: 25px 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: #046BA7;
+  padding: 30px 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 header h1 {
   margin: 0;
-  font-size: 2.2em;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #fff;
 }
 
 /* ===== الحاويات ===== */
@@ -33,27 +35,27 @@ header h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 25px;
 }
 
 .card {
-  background: rgba(0,0,0,0.2);
+  background: #ffffff20;
   border-radius: 20px;
   padding: 25px;
   margin: 15px;
   width: 90%;
-  max-width: 450px;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.4);
-  backdrop-filter: blur(5px);
+  max-width: 500px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
 }
 
 /* ===== الأزرار ===== */
 button {
-  background-color: #00ffff;
-  color: #005f8a;
+  background-color: #fff;
+  color: #046BA7;
   border: none;
   border-radius: 15px;
-  padding: 12px 25px;
+  padding: 12px 28px;
   margin: 10px 5px;
   cursor: pointer;
   font-size: 18px;
@@ -61,9 +63,9 @@ button {
   transition: 0.3s;
 }
 button:hover {
-  background-color: #00aaff;
+  background-color: #046BA7;
   color: #fff;
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 
 /* ===== نصوص ===== */
@@ -73,9 +75,10 @@ button:hover {
   min-height: 70px;
 }
 .counter {
-  font-size: 40px;
+  font-size: 42px;
   margin: 10px 0;
-  color: #ffff00;
+  color: #ffeb3b;
+  font-weight: bold;
 }
 
 /* ===== تحديات الأعمال الخيرية ===== */
@@ -83,16 +86,17 @@ button:hover {
   font-size: 20px;
   font-weight: bold;
   margin: 10px 0;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.25);
   padding: 15px;
   border-radius: 15px;
-  color: #ffeb3b;
+  color: #fff;
 }
 </style>
 </head>
 <body>
 
 <header>
+  <img src="شعار-IEEE.png" alt="شعار IEEE" style="height:80px; margin-bottom:10px;">
   <h1>IEEE جامعة النجاح – رمضان 🌙</h1>
 </header>
 
@@ -143,15 +147,16 @@ let count = 0;
 function increment(){
   count++;
   document.getElementById("count").innerText = count;
-  localStorage.setItem('count', count); // حفظ العدد
+  localStorage.setItem('count', count);
 }
 function reset(){
   count = 0;
   document.getElementById("count").innerText = count;
   localStorage.setItem('count', count);
 }
-// استرجاع العدد عند فتح الصفحة
 window.onload = function(){
+  newDua();
+  newChallenge();
   const saved = localStorage.getItem('count');
   if(saved) count = parseInt(saved);
   document.getElementById('count').innerText = count;
@@ -169,15 +174,6 @@ const challenges = [
 function newChallenge(){
   const random = Math.floor(Math.random() * challenges.length);
   document.getElementById("challenge").innerText = challenges[random];
-}
-
-// ===== تفعيل الأدعية + تحديات عند فتح الصفحة =====
-window.onload = function(){
-  newDua();
-  newChallenge();
-  const saved = localStorage.getItem('count');
-  if(saved) count = parseInt(saved);
-  document.getElementById('count').innerText = count;
 }
 </script>
 
