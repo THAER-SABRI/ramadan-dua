@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
-    <title>IEEE NNU رمضان</title>
+    <title>IEEE NNU Ramadan</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
       rel="stylesheet"
@@ -61,10 +61,10 @@
       .card {
         background: linear-gradient(145deg, #e6f2fa, #fff);
         border-radius: 25px;
-        padding: 30px;
+        padding: 25px;
         margin: 20px 0;
         width: 90%;
-        max-width: 500px;
+        max-width: 380px; /* مناسب للهواتف */
         box-shadow: 0 0 20px rgba(7, 119, 166, 0.3);
         border: 2px solid #0777a6;
         color: #0777a6;
@@ -87,6 +87,10 @@
           transform 0.3s,
           color 0.3s,
           text-shadow 0.3s;
+      }
+      /* زيادة المسافة بين النص والزر في البطاقة */
+      .card button {
+        margin-top: 30px; /* المسافة بين النص والزر */
       }
       .counter {
         font-size: 45px;
@@ -120,6 +124,7 @@
 
       /* ===== تحدي الخير اليوم ===== */
       .challenge {
+        margin-bottom: 20px;
         background: linear-gradient(90deg, #0777a6, #055a86);
         color: #fff;
         padding: 20px 15px;
@@ -132,7 +137,7 @@
         height: 50px;
         text-align: center;
         box-shadow: 0 0 15px rgba(7, 119, 166, 0.5);
-        margin-bottom: 20px; /* المسافة من الزر */
+        margin-bottom: 20px;
       }
 
       /* ===== Animation ===== */
@@ -204,7 +209,7 @@
       </div>
 
       <div class="card">
-        <h2>تحدي الخير اليوم</h2>
+        <h2>: تحدي اليوم</h2>
         <div class="challenge" id="challenge">اضغط لعرض التحدي</div>
         <button onclick="newChallenge()">تحدي جديد</button>
       </div>
