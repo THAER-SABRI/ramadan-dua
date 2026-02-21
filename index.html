@@ -3,48 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أدعية رمضان</title>
+<title>IEEE Ramadan Duas</title>
 <style>
 body {
-  font-family: Arial;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f4f8;
+  color: #fff;
   text-align: center;
-  background: #0f172a;
-  color: white;
-  padding: 30px;
+  margin: 0;
+  padding: 0;
 }
-.card {
-  background: #1e293b;
+
+header {
+  background-color: #0072C6; /* لون IEEE */
   padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
 }
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  background-color: #1e3a5f; /* أزرق غامق متناسق */
+  padding: 25px;
+  border-radius: 15px;
+  margin: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
 button {
-  padding: 10px 20px;
-  margin: 10px;
+  background-color: #00aaff;
+  color: white;
   border: none;
   border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px;
   cursor: pointer;
+  font-size: 16px;
 }
+
+button:hover {
+  background-color: #005f8a;
+}
+
 .counter {
-  font-size: 30px;
+  font-size: 36px;
   margin: 10px 0;
+  color: #00ffff;
+}
+
+.dua-text {
+  font-size: 20px;
+  margin-bottom: 15px;
+  min-height: 60px;
 }
 </style>
 </head>
 <body>
 
-<h2>🌙 أدعية رمضان</h2>
+<header>
+  <h1>IEEE جامعة النجاح – رمضان 🌙</h1>
+</header>
 
-<div class="card">
-  <p id="dua">اضغط للحصول على دعاء</p>
-  <button onclick="newDua()">دعاء جديد</button>
-</div>
+<div class="container">
 
-<div class="card">
-  <h3>عداد الاستغفار</h3>
-  <div class="counter" id="count">0</div>
-  <button onclick="increment()">استغفر الله</button>
-  <button onclick="reset()">تصفير</button>
+  <div class="card">
+    <div class="dua-text" id="dua">اضغط للحصول على دعاء</div>
+    <button onclick="newDua()">دعاء جديد</button>
+  </div>
+
+  <div class="card">
+    <h3>عداد الاستغفار</h3>
+    <div class="counter" id="count">0</div>
+    <button onclick="increment()">استغفر الله</button>
+    <button onclick="reset()">تصفير</button>
+  </div>
+
 </div>
 
 <script>
@@ -53,7 +97,8 @@ const duas = [
 "اللهم إنك عفو تحب العفو فاعف عنا",
 "اللهم ارزقنا حسن الخاتمة",
 "اللهم اجعل القرآن ربيع قلوبنا",
-"اللهم تقبل منا الصيام والقيام"
+"اللهم تقبل منا الصيام والقيام",
+"اللهم اجعلنا من المقبولين"
 ];
 
 function newDua(){
@@ -61,12 +106,12 @@ function newDua(){
   document.getElementById("dua").innerText = duas[random];
 }
 
+// عداد الاستغفار
 let count = 0;
 function increment(){
   count++;
   document.getElementById("count").innerText = count;
 }
-
 function reset(){
   count = 0;
   document.getElementById("count").innerText = count;
