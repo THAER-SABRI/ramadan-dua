@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أدعية رمضان</title>
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #0f172a;
+  color: white;
+  padding: 30px;
+}
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.counter {
+  font-size: 30px;
+  margin: 10px 0;
+}
+</style>
+</head>
+<body>
+
+<h2>🌙 أدعية رمضان</h2>
+
+<div class="card">
+  <p id="dua">اضغط للحصول على دعاء</p>
+  <button onclick="newDua()">دعاء جديد</button>
+</div>
+
+<div class="card">
+  <h3>عداد الاستغفار</h3>
+  <div class="counter" id="count">0</div>
+  <button onclick="increment()">استغفر الله</button>
+  <button onclick="reset()">تصفير</button>
+</div>
+
+<script>
+const duas = [
+"اللهم بلغنا رمضان لا فاقدين ولا مفقودين",
+"اللهم إنك عفو تحب العفو فاعف عنا",
+"اللهم ارزقنا حسن الخاتمة",
+"اللهم اجعل القرآن ربيع قلوبنا",
+"اللهم تقبل منا الصيام والقيام"
+];
+
+function newDua(){
+  const random = Math.floor(Math.random() * duas.length);
+  document.getElementById("dua").innerText = duas[random];
+}
+
+let count = 0;
+function increment(){
+  count++;
+  document.getElementById("count").innerText = count;
+}
+
+function reset(){
+  count = 0;
+  document.getElementById("count").innerText = count;
+}
+</script>
+
+</body>
+</html>
